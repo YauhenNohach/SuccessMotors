@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Template For Opportunity (Clone)</name>
+    <pageDevName>Template_For_Opportunity_Clone</pageDevName>
+    <relatedEntityType>Opportunity</relatedEntityType>
+    <style>none</style>
+    <textOnly>{{{Opportunity.Invoice_Number__c}}} ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ 
+
+[Image alt text: text] &lt; https://yuahennohach-dev-ed.develop.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Jpg&amp;versionId=068IT00000n2eZ5&amp;operationContext=DELIVERY&amp;contentId=05TIT00002MVRZf&amp;page=0&amp;d=%2Fa%2FIT000000nod0%2FdtDNRgsvBijQ8Sx4En0n2iwaTlFTS6ZxlgeGjpAJke0&amp;oid=00DIT000002KzJH&amp;dpt=null&amp;viewId= &gt; 
+
+**Hi, {{{Recipient.Name}}}.
+----------------------------------------------------
+
+**Confirm your order. We will send you an invoice for your review. 
+----------------------------------------------------
+
+From company {{{Sender.CompanyName}}}</textOnly>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

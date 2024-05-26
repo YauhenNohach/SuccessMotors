@@ -1,0 +1,193 @@
+.company-info-text {  
+    text-align: left;
+}
+.organization-name {  
+    font-size: 1.2em;
+    font-weight:bold;
+}
+.invoice {
+    color: #808080;
+}
+
+.invoice-related-top {
+    margin-top: 0px;
+}
+.bill-to-title { 
+    margin-top: 20px;
+    color: #003366;  
+    border-bottom: 1px solid #003366;
+}
+
+.contact-info {   
+    margin-top: 25px;
+    color: black;  
+    font-weight: bold;
+}
+.table-fixed-width {  
+    -fs-table-paginate: paginate;
+    border-spacing: 0;  
+    table-layout: fixed;
+    width: 100%;   
+    margin-top: 40px;
+}
+
+.orange-header {   
+    background-color: #ff4500;
+    text-align: center;}
+
+.black-bold-left {   
+    color: black;
+    font-weight: bold;  
+    text-align: left;
+}
+.contact-info_detail {
+    margin-top: 10px;
+}
+
+.black-bold-center {
+    color: black;  
+    font-weight: bold;
+    text-align: center;
+}
+
+.black-bold-right {
+    color: black;   
+    font-weight: bold;
+    text-align: right;
+}
+
+.balance-due {
+    border-right: none;  
+    border-bottom: none;
+    font-size: 14px;  
+    font-weight: bold;
+}
+
+.orange-bar {    
+    background-color: #ff4500;
+    height: 20px;   
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, p {
+    margin: 0;  
+    padding: 2px 0;
+}
+
+.header-table, .header-table th, .header-table td {
+    border: none;
+    background-color: #f8f8f8;
+    
+}
+
+th, td {
+    padding: 5px;
+}
+
+.header, {
+    background-color: #f8f8f8;   
+    padding: 10px;
+    text-align: center;
+}
+
+.header {   
+    display: table;
+    width: 100%;  
+    table-layout: fixed;
+}
+
+.logo-cell {   
+    width: 20%;
+    display: block;
+}
+
+.company-info, .invoice-info {
+    width: 40%;
+
+}
+
+.totals {
+    text-align: right;   
+    padding: 5px;
+    font-weight: bold;
+}
+
+.amount-due {
+    margin-top: 10px;   
+    padding: 5px;
+    text-align: right; 
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.invoice-info {
+    width: 20%;
+}
+
+.invoice-related {
+    margin-top: 30px;
+}
+
+
+.content {
+    flex: 1;
+    padding-bottom: 50px;
+}
+
+.table-container {
+    margin-bottom: 320px; 
+}
+.footer-container {
+    background-color: #ff4500;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.show-footer .footer-container {
+    display: block;
+}
+
+.amount-due-cell {
+    border-bottom: 1px solid black; 
+    border-right: none;
+    border-left: none;  
+    font-size: 16px;
+    font-weight: bold;   
+    text-align: center;
+    background-color: #F5B7B1;
+}
+
+.balance-due .amount-due-cell {
+    border-bottom: 1px solid black;
+}
+
+.balance-due th,
+.balance-due td {   
+    border: none;
+}
+
+.footer_organization-name {  
+    text-align: center;
+    color: white;
+}
+
+.table-fixed-width tr.data-row:nth-of-type(even) td {
+}
+
+.table-fixed-width tr.data-row:nth-of-type(odd) td {
+}
+
+.table-fixed-width tr:last-child td,.table-fixed-width tr:last-child th {
+    border-bottom: 1px solid #808080;
+}
+
+.table-fixed-width tr td,
+.table-fixed-width tr th {    border-right: 1px solid #808080;
+    border-left: 1px solid #808080;}

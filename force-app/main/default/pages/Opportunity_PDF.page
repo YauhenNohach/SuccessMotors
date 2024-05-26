@@ -1,0 +1,83 @@
+<apex:page standardController="Opportunity" extensions="OpportunityPDFController" renderAs="pdf" applyHtmlTag="false" showHeader="false"> 
+    <head> 
+        <apex:stylesheet value="{!URLFOR($Resource.invoice)}"/>      
+    </head> 
+    <body> 
+        <div class="content">
+        <div class="orange-bar"></div>   
+        <div class="header">  
+            <table class="header-table">  
+                <tr>  
+                    <td></td>  
+                    <td><apex:image id="logo2" value="https://yuahennohach-dev-ed.develop.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Jpg&versionId=068IT00000n2eZ5&operationContext=DELIVERY&contentId=05TIT00002MVRZf&page=0&d=/a/IT000000nod0/dtDNRgsvBijQ8Sx4En0n2iwaTlFTS6ZxlgeGjpAJke0&oid=00DIT000002KzJH&dpt=null&viewId=" width="60" height="60"/></td>  
+                    <td class="company-info company-info-text">  
+                       <p class="organization-name">{!$Organization.Name}</p> 
+                        <p>{!$Organization.Street}, {!$Organization.City}</p>  
+                    </td>  
+                    <td></td>  
+                    <td></td>  
+                    <td></td>  
+                    <td class="invoice-info">  
+                        <div class="invoice-related invoice-related-top">  
+                            <h2 class = "invoice">INVOICE</h2>         
+                            <p class="bill-to-title">Date and Time: {!NOW()}</p> 
+                            <p class="bill-to-title">Invoice No: {!invoiceNumber}</p>  
+                        </div>  
+                    </td>  
+                </tr>  
+            </table>  
+        </div>  
+        <div class="contact-info">  
+            <h2 class="bill-to-title">Bill To:</h2>  
+            <div class="contact-info_detail">  
+                <apex:repeat var="contactRole" value="{!OpportunityContactRoles}">  
+                    <apex:outputText rendered="{!contactRole.IsPrimary}">  
+                        <div class="contact-info_detail">  
+                            <p>{!contactRole.Contact.Name}</p>  
+                            <p>{!contactRole.Contact.Account.Name}</p>  
+                            <p>{!contactRole.Contact.Phone}</p>  
+                            <p>{!contactRole.Contact.Email}</p>  
+                        </div>  
+                    </apex:outputText>  
+                </apex:repeat>  
+            </div>  
+        </div>  
+            <div class="table-container">
+        <table class="table-fixed-width">  
+            <thead>  
+               <tr>  
+                   <th class="orange-header" style="color: white;">PRODUCT NAME</th>  
+                   <th class="orange-header" style="color: white;">QTY</th>  
+                   <th class="orange-header" style="color: white;">UNIT PRICE</th>  
+                   <th class="orange-header" style="color: white;">TOTAL</th> 
+                </tr>  
+            </thead>
+            <tbody> 
+        <apex:variable var="rowNum" value="{!0}" />
+<apex:repeat value="{!OpportunityLineItems}" var="lineItem">
+    <apex:variable var="rowNum" value="{!rowNum + 1}" />
+    <tr style="{!IF(MOD(rowNum, 2) == 0, 'background-color: #ffffff;', 'background-color: #dcdcdc;')}">
+        <td class="black-bold-left">{!lineItem.Product2.Name}</td>  
+        <td class="black-bold-center">{!lineItem.Quantity}</td> 
+        <td class="black-bold-right">{!lineItem.UnitPrice}</td>  
+        <td class="black-bold-right">{!lineItem.TotalPrice}</td>  
+    </tr>  
+</apex:repeat>
+
+                <tr class="balance-due" style="border-top: 1px solid #808080;">  
+                    <td colspan="2" style = "border: none; border-top: 1px solid #808080;"></td>  
+                    <td class="totals" style = "border: none; border-top: 1px solid #808080;">Balance Due:</td>
+                    <td class="amount-due-cell" style ="border-right: none; border-left: none; border-top: 1px solid #808080;">$ {!opportunityAmount}</td>  
+                </tr>  
+            </tbody>
+        </table> 
+              
+       </div>
+            </div>
+            <div class="footer-container">
+            <footer class="footer">
+                <p class="footer_organization-name">{!$Organization.Name}</p> 
+            </footer>
+        </div>
+    </body> 
+</apex:page>

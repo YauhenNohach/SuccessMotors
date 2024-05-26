@@ -1,0 +1,58 @@
+<template>
+    <div class="container">
+        <div class="search-bar">
+            <lightning-input type="search" onchange={handleSearchChange} label="Search By Name and Total Amount" value={searchKey}></lightning-input>
+            <div class="navigation-buttons">
+                <lightning-button label="Previous" onclick={handlePreviousPage}></lightning-button>
+                <lightning-button label="Next" onclick={handleNextPage}></lightning-button>
+            </div>
+        </div>
+        <lightning-accordion allow-multiple-sections-open>
+            <template for:each={paginatedAccounts} for:item="account">
+                <lightning-accordion-section key={account.Id} name={account.Id} label={account.accountLabel} onclick={handleAccordionClick} data-account-id={account.Id}>
+                    <lightning-card title="Closed Opportunities">
+                        <lightning-datatable 
+                            key-field="Id" 
+                            data={account.opportunities} 
+                            columns={columns}
+                            onrowaction={handleRowAction}>
+                        </lightning-datatable> 
+                    </lightning-card> 
+                </lightning-accordion-section> 
+            </template>
+        </lightning-accordion>
+    </div>
+
+    <div if:true={isAccountDetailPage} class="detail-view">
+        <lightning-card title="Closed Opportunities">
+            <lightning-datatable 
+                key-field="Id" 
+                data={singleAccount.opportunities} 
+                columns={columns}
+                onrowaction={handleRowAction}>
+            </lightning-datatable> 
+        </lightning-card> 
+    </div>
+
+    <template if:true={isModalOpen}>
+        <div class="modal-overlay"></div>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="modal-dialog">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h2 id="modal-heading-01" class="modal-title">Opportunity Products</h2>
+                </header>
+                <div class="modal-body">
+                    <ul>
+                        <template for:each={selectedOpportunityProducts} for:item="product">
+                            <li key={product.Id}>{product.Product2.Name}</li>
+                        </template>
+                    </ul>
+                </div>
+                <footer class="modal-footer">
+                    <lightning-button label="Close" onclick={closeModal}></lightning-button>
+                </footer>
+            </div>
+        </section>
+    </template>
+    <span class="pagination-info">{currentPage} of {totalPages}</span>
+</template>

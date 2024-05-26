@@ -1,0 +1,11 @@
+<apex:page standardController="Opportunity" extensions="OpportunityPDFController">
+    <apex:form >
+        <apex:pageMessages /> 
+        <apex:pageBlock title="preview and save">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}" />
+            </apex:pageBlockButtons>
+            <apex:iframe src="{!URLFOR($Page.Opportunity_PDF, null, [id=Opportunity.Id])}" scrolling="true" />
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

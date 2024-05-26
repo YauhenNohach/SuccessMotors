@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Schedule batch">
+        <div class="slds-p-horizontal_small">
+            <p>Description text</p>
+            <div class="slds-grid slds-gutters">
+                <lightning-input class="slds-col" label="CRON String" value={cronString} onchange={handleCronStringChange} required disabled={isSchedulerScheduled}></lightning-input>
+                       <lightning-helptext content="CRON Format: Seconds Minutes Hours Day-of-Month Month Day-of-Week Year
+Examples:
+- '0 0 12 * * ? *' - Every day at 12 PM
+- '0 15 10 ? * 6L 2024' - Last Friday of the month at 10:15 AM in 2024"></lightning-helptext>
+                <div class="slds-col slds-m-top_medium">
+                </div>
+            </div>
+             <template if:true={errorMessage}>
+                <p class="slds-text-color_error">{errorMessage}</p>
+            </template>
+            <lightning-formatted-url value="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_scheduler.htm" label="Read more about scheduling" target="_blank" class="slds-text-body_small"></lightning-formatted-url>
+            <div class="divider"></div>
+            <div class="slds-grid slds-gutters slds-grid_align-end">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <lightning-button label="Run Once" onclick={handleRunBatch} class="myButton" variant="brand"></lightning-button>
+                </div>
+                <template if:false={isSchedulerScheduled}>
+                    <div class="slds-col">
+                        <lightning-button label="Schedule Batch" onclick={handleScheduleBatch} class="myButton" variant="brand"></lightning-button>
+                    </div>
+                </template>
+                <template if:true={isSchedulerScheduled}>
+                    <div class="slds-col">
+                        <lightning-button label="Abort Batch" onclick={handleCancelScheduler} class="myButton2" variant="brand"></lightning-button>
+                    </div>
+                </template>
+            </div>
+        </div>
+        </div>
+    </lightning-card>
+</template>

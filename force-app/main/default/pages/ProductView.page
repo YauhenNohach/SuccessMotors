@@ -1,0 +1,6 @@
+<apex:page controller="CreatePricebookEntries"> 
+
+    <apex:pageBlock >
+      My test view 
+    </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Send Email">
+        <div class="slds-var-p-around_medium">
+            <div class="slds-var-m-bottom_medium">
+                <lightning-input label="Subject" value={emailSubject} onchange={handleSubjectChange} disabled></lightning-input>
+                <lightning-input label="Name" value={recipientName} disabled></lightning-input>
+                <lightning-input label="Email" value={recipientEmail} disabled></lightning-input>
+                <lightning-textarea label="Body Email" value={emailBody} onchange={handleEmailBodyChange}></lightning-textarea>
+            </div>
+            <div class="slds-var-m-bottom_medium">
+                <lightning-button label="Preview Invoice" onclick={handleGenerateInvoice}></lightning-button>
+                <lightning-button label="Send Email" onclick={sendEmail}></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

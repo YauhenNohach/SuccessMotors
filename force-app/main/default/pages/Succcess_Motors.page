@@ -1,0 +1,41 @@
+<apex:page standardController="Account" renderAs="pdf">
+ 
+<apex:image id="TOK_Logo" value="https://yuahennohach-dev-ed.develop.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Jpg&versionId=068IT00000n2eZ5&operationContext=DELIVERY&contentId=05TIT00002MVRZf&page=0&d=/a/IT000000nod0/dtDNRgsvBijQ8Sx4En0n2iwaTlFTS6ZxlgeGjpAJke0&oid=00DIT000002KzJH&dpt=null&viewId=" width="200" height="100%" alt="TwentyOne Knots Logo" />
+ 
+<div style="font-family:sans-serif;"> 
+<h1>Welcome to TwentyOne Knots!</h1>
+</div>
+ 
+<div style="font-family:sans-serif;text-align:left;font-size:12pt;">
+<p>Thank you, <b><apex:outputText value=" {!Account.Name}"/></b>, for 
+   becoming a new account with TwentyOne Knots.</p>
+ 
+<p>Your account details are:</p>
+ 
+<table>
+<tr><th>Account Name</th>
+    <td><apex:outputText value="{!Account.Name}"/></td>
+    </tr>
+<tr><th>Account Rep</th>
+    <td><apex:outputText value="{!Account.Owner.Name}"/></td>
+    </tr>
+<tr><th>Customer Since</th>
+    <td><apex:outputText value="{0,date,long}">
+        <apex:param value="{!Account.CreatedDate}"/>
+        </apex:outputText></td>
+    </tr>
+</table>
+    
+<p>It's a pleasure to have you on board.  Please do not hesitate to contact us should you have any questions or concerns.</p>
+    
+<p>Sincerely,</p>
+    
+<p><apex:outputText value="{!Account.Owner.Name}"/></p>
+</div>
+
+<div style="font-family:sans-serif;text-align:left;color:#2f5a61;font-size:10pt;"><br/> 504 Henry Street<br/>
+Brooklyn, NY  11231<br/>
+917.302.8426<br/>
+www.twentyoneknots.com<br/> </div>
+    
+</apex:page>
